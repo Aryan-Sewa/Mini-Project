@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/GIF.css')}}">
+    <title>GiveItForward</title>
+</head>
+
+<body id="home">
+    <div class="wrapper">
+        <header>
+            <!-- logo -->
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path fill="rgba(0,0,0,0.74)"
+                        d="M163.9 136.9c-29.4-29.8-29.4-78.2 0-108s77-29.8 106.4 0l17.7 18 17.7-18c29.4-29.8 77-29.8 106.4 0s29.4 78.2 0 108L310.5 240.1c-6.2 6.3-14.3 9.4-22.5 9.4s-16.3-3.1-22.5-9.4L163.9 136.9zM568.2 336.3c13.1 17.8 9.3 42.8-8.5 55.9L433.1 485.5c-23.4 17.2-51.6 26.5-80.7 26.5L192 512 32 512c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l36.8 0 44.9-36c22.7-18.2 50.9-28 80-28l78.3 0 16 0 64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l120.6 0 119.7-88.2c17.8-13.1 42.8-9.3 55.9 8.5zM193.6 384c0 0 0 0 0 0l-.9 0c.3 0 .6 0 .9 0z" />
+                </svg>
+                GiveItForward
+            </div>
+            <!-- <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div> -->
+
+            <!-- navbar -->
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#howitworks">How it works?</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="{{ url_for('about')}}">About us</a></li>
+                    <li><a href="{{ url_for('contact')}}">Contact us</a></li>
+                    <li><a class="nav-link login-button" href="{{ url_for('user_login')}}">Signup / Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--to top button -->
+        <div class="top">
+            <a href="#home">
+                <img width="35px" height="31px" src="{{ url_for('static', filename='images/arrow.png')}}" alt="scroll-top">
+            </a>
+        </div>
+        <!-- hero section -->
+        <div class="container">
+            <div class="hero-section">
+                <div class="hero-text">
+                    <h1 class="hero-title"><span class="highlight ">Make</span> a difference
+                        with <span class="highlight cursive">every </span>donation<span style="color: #ff7f3e;">.</span>
+                    </h1>
+                    <p class="hero-sub">Transform lives with your generosity.
+                        Join our community and be a part of the change, making a real difference with every donation.
+                    </p>
+                    <div class="hero-btn">
+                        <a href="{{ url_for('user')}}"><button class="Dbtn">Donate Now</button></a>
+
+                        <button class="Rbtn">Register as a Trust</button>
+                    </div>
+                </div>
+                <div class="hero-img">
+                    <img class="hero-img" src="{{ url_for('static', filename='images/hero.png')}}" alt="charity image">
+                </div>
+            </div>
+        </div>
+        <!-- quote section -->
+        <div class="quote-section">
+            <div class="quote">
+                <h1>"We rise by lifting others."</h1>
+                <p>-Robert Ingersoll</p>
+            </div>
+        </div>
+        <!-- working steps -->
+        <div class="working" id="howitworks">
+            <div class="steps">
+
+                <div class="one">
+                    <div class="icon">
+                        <img width="350px" height="350px" src="{{ url_for('static', filename='images/s1.png')}}" alt="create an acc">
+                    </div>
+
+                    <div class="title">
+                        <h1>Log In or Create Account</h1>
+
+
+                        <p>Get started by quickly logging in if you already have an account or creating a new one within
+                            minutes. Your account will
+                            give you access to our platform, where you can manage your donations, track their progress,
+                            and see the impact you're
+                            making in real time.</p>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="two">
+                    <div class="title">
+                        <h1>List Your Items</h1>
+
+
+                        <p>After logging in, you can start listing the items you wish to donate. Whether it's old
+                            clothes, non-perishable food, or
+                            other useful items, simply enter the details, and our system will take care of the rest. You
+                            can also view and manage
+                            all your listed items easily.
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <img width="350px" height="350px" src="{{ url_for('static', filename='images/s2.png')}}" alt="list items">
+                    </div>
+
+                </div>
+                <hr>
+
+                <div class="three">
+                    <div class="icon">
+                        <img width="350px" height="350px" src="{{ url_for('static', filename='images/s3.png')}}" alt="pickup by volunteer">
+                    </div>
+
+                    <div class="title">
+                        <h1>Pick Up By Volunteers</h1>
+
+                        <p>Once your items are listed, our trusted volunteers—affectionately known as
+                            "Pick-upBuddies"—will come to your doorstep
+                            to collect them. All pickups are scheduled based on your convenience, ensuring a hassle-free
+                            donation process.</p>
+                    </div>
+
+                </div>
+
+                <hr>
+                <div class="four">
+
+
+                    <div class="title">
+                        <h1>Delivery and Distributions</h1>
+
+
+                        <p>Your donated items are transported to various trusted organizations and charities. These
+                            items are then distributed to
+                            those who need them the most, ensuring that your contributions make a direct impact.</p>
+
+                    </div>
+                    <div class="icon">
+                        <div class="icon">
+                            <img width="350px" height="350px" src="{{ url_for('static', filename='images/s4.png')}}" alt="delivery and distribution">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- quote section -->
+        <div class="quote-section">
+            <div class="quote">
+                <h1>"When one gives, two get happy."</h1>
+                <p>-Amit Kalantri</p>
+            </div>
+        </div>
+
+        <!-- why choose us -->
+        <div class="why-section">
+            <div class="section">
+                <h1>Why choose us?</h1>
+            </div>
+            <div class="grids">
+                <div id="b1" class="box">
+                    <div class="icons">
+                        <img src="{{ url_for('static', filename='images/trans.svg')}}" alt="transparency">
+                    </div>
+                    <div class="topics">
+                        <h4>Transparent Process</h4>
+                        <p>Receive notifications at every step of the donation process, ensuring you stay informed from
+                            pick-up to delivery.</p>
+                    </div>
+                </div>
+                <div id="b2" class="box">
+                    <div class="icons">
+                        <img src="{{ url_for('static', filename='images/widereach.svg')}}" alt="wide reach">
+                    </div>
+                    <div class="topics">
+                        <h4>Wide Reach</h4>
+                        <p>Helping as many people in need as possible, with a network that spans across communities and
+                            regions.</p>
+                    </div>
+                </div>
+                <div id="b3" class="box">
+                    <div class="icons">
+                        <img src="{{ url_for('static', filename='images/community.svg')}}" alt="community driven">
+                    </div>
+                    <div class="topics">
+                        <h4>Community Driven</h4>
+                        <p>Join a network of passionate volunteers dedicated to making a difference through collective
+                            action.</p>
+                    </div>
+                </div>
+                <div id="b4" class="box">
+                    <div class="icons">
+                        <img src="{{ url_for('static', filename='images/easy.svg')}}" alt="easy to use">
+                    </div>
+                    <div class="topics">
+                        <h4>Easy to Use</h4>
+                        <p>A simple and user-friendly interface that makes donating and tracking your contributions
+                            effortless.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- achievements -->
+        <div id="achievements" class="achievements">
+            <div class="section">
+                <h1>Achievements</h1>
+            </div>
+            <div class="achievement-section">
+                <div class="achievement">
+                    <h2>10k</h2>
+                    <p>Donations Delivered</p>
+                </div>
+                <div class="achievement">
+                    <h2>5k+</h2>
+                    <p>Happy Donors</p>
+                </div>
+                <div class="achievement">
+                    <h2>15+</h2>
+                    <p>Trusts & Organizations Partnered</p>
+                </div>
+            </div>
+        </div>
+        <!-- image -->
+        <div class="image-sec">
+            <div class="section">
+                <img class="image1" width="140%" height="400px" src="{{ url_for('static', filename='images/image1.jpg')}}" alt="helping">
+            </div>
+        </div>
+        <!-- testimonials -->
+        <div class="section">
+            <h1 class="test">Testimonials</h1>
+        </div>
+        <div class="testimonial-section">
+
+            <div class="testimonial-card">
+                <div class="profile-pic">
+                    <img src="{{ url_for('static', filename='images/keerthanaa.jpg')}}" alt="Profile Picture">
+                </div>
+                <h3>KEERTHANA RAVI</h3>
+                <h4>WEB DEVELOPER</h4>
+                <div class="quote-icon">❝</div>
+                <p>GiveItForward makes donating easy, and I know exactly where my contributions go.</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="profile-pic">
+                    <img src="{{ url_for('static', filename='images/aryan.jpg')}}" alt="Profile Picture">
+                </div>
+                <h3>PRAVEEN KUMAR</h3>
+                <h4>KIND FOUNDATION</h4>
+                <div class="quote-icon">❝</div>
+                <p>GiveItForward helps our trust reach more people in need with ease and efficiency.</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="profile-pic">
+                    <img src="{{ url_for('static', filename='images/praveen.jpg')}}" alt="Profile Picture">
+                </div>
+                <h3>ARYAN SEWA</h3>
+                <h4>NETWORK ENGINEER</h4>
+                <div class="quote-icon">❝</div>
+                <p>Seeing my donations make a real impact keeps me connected to my community.</p>
+            </div>
+        </div>
+        <!-- call to action -->
+        <div class="cta">
+
+            <h1>Ready to Make a Difference?</h1>
+            <p>Join our community of donors and trusts.</p>
+            <div class="cta-btn">
+                <button class="btn1">Donate Now</button>
+                <button class="btn2">Register as a Trust</button>
+            </div>
+        </div>
+        <!-- footer -->
+        <footer>
+            <p>&copy; 2024 Give It Forward. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/GIF.js')}}"></script>
+
+
+</body>
+
+</html>
