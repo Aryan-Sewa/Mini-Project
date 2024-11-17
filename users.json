@@ -1,0 +1,8 @@
+[
+    {
+        "username": "Aryan",
+        "email": "aryansewa2004@gmail.com",
+        "password": "scrypt:32768:8:1$3S253RcqD9QU2qPV$ac06a30ff4540a19d34762fd5c6693dc7c69761875a336661da0adfa85b868ec5fa0892ceec639e4ad95f3c2fbe6473ad35f4e0877f0b4ecab6784ad9cbef561",
+        "phone": "1234567890"
+    }
+]

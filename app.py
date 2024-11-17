@@ -1,10 +1,11 @@
-from flask import Flask,request,render_template,jsonify
-import json
+from flask import Flask,request,render_template,redirect,flash
+from register import Registration
 
 
 app = Flask(__name__)
+app.secret_key = 'jojo'
 
-
+reg = Registration('users.json')
 
 @app.route('/')
 def home():
@@ -18,59 +19,32 @@ def about():
 def contact():
     return render_template('contact.html')
 
-@app.route('/login/user', methods=['GET','POST'])
-def user_login():
-    islogged = False
-    if(not islogged):
-        islogged=True
-        return render_template('login.html')
+@app.route('/signin', methods=['GET','post'])
+def signin():
+    return render_template('signin.html')
 
-    if (islogged):
-        username = request.form.get('login-name')
-        userphone = request.form.get('login-phone')
-        useremail = request.form.get('login-email')
-        password = request.form.get('login-password')
+@app.route('/register', methods=['GET','POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['login-name']
+        userphone = request.form['login-phone']
+        email = request.form['login-email']
+        password = request.form['login-password']
 
-        user_data = {
-            "user_name": username,
-            "phone_no": userphone,
-            "email": useremail,
-            "pass_word": password
-        }
-
-        with open('user_login_data.json', 'w') as json_file:
-            json.dump(user_data, json_file, indent=4)
-        
-        return jsonify({"message": "User login data saved successfully"}), 200
-
-@app.route('/signup/organization', methods=['POST'])
-def organization_signup():
-    org_name = request.form.get('signup-organization-name')
-    org_type = request.form.get('signup-organization-type')
-    tax_id = request.form.get('signup-tax-id')
-    contact_name = request.form.get('signup-contact-name')
-    contact_email = request.form.get('signup-contact-email')
-    contact_phone = request.form.get('signup-contact-phone')
-    address = request.form.get('signup-address')
-    document = request.form.get('signup-document')
-    password = request.form.get('signup-password')
-
-    org_data = {
-        "organization_name": org_name,
-        "organization_type": org_type,
-        "tax_id": tax_id,
-        "contact_name": contact_name,
-        "contact_email": contact_email,
-        "contact_phone": contact_phone,
-        "address": address,
-        "document": document,
-        "password": password
-    }
-
-    with open('organization_signup_data.json', 'w') as json_file:
-        json.dump(org_data, json_file, indent=4)
+        is_valid, message = reg.validate_input(email, password)
+        if not is_valid:
+            flash(message)
+            return redirect('/register')
     
-    return jsonify({"message": "Organization sign-up data saved successfully"}), 200
+        is_registered, message = reg.register_user(username, email, password, userphone)
+        if is_registered:
+            flash(message)
+            return redirect('/signin')
+        else:
+            flash(message)
+            return redirect('/register')
+    
+    return render_template('register.html')
 
 
 @app.route('/user')
