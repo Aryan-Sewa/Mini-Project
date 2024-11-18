@@ -4,5 +4,23 @@
         "email": "aryansewa2004@gmail.com",
         "password": "scrypt:32768:8:1$3S253RcqD9QU2qPV$ac06a30ff4540a19d34762fd5c6693dc7c69761875a336661da0adfa85b868ec5fa0892ceec639e4ad95f3c2fbe6473ad35f4e0877f0b4ecab6784ad9cbef561",
         "phone": "1234567890"
+    },
+    {
+        "username": "pulset",
+        "email": "pulset420@gmail.com",
+        "password": "scrypt:32768:8:1$JqeZqWbS1zxuxuhh$5b264e8d1909ae4be0f8799a76ba7dc8cfcc59f57b62af09ed320ca014efa30f846a12ac47e338e8743a6cb43c300017b934ae8c821a16b1319587ae02a072a0",
+        "phone": "0987654321"
+    },
+    {
+        "username": "praveengolti",
+        "email": "praveengolti@gmail.com",
+        "password": "scrypt:32768:8:1$GOFQ49uODYZhyY25$b959b8b7b34a81e4fba447a453472612ed5387e1fd0bb4333c6f416b215a3d9e94dd062d3a7e73a700576592edf0ffe4e4683e983ebe029b392dfd4684ada870",
+        "phone": "575847493938"
+    },
+    {
+        "username": "harishpalank",
+        "email": "harishpalank@gmail.com",
+        "password": "scrypt:32768:8:1$b5RDbp7MkhwC2dFi$6ce7fae93a6f17763bb4bda9f2a7ae5db918b644cb070a02ac08dc116a5cfb241614283b053cde5e756b62e5f01f6f82cc1418665b548d26909fffbeeea89bda",
+        "phone": "22233344551"
     }
 ]

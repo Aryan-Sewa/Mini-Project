@@ -335,10 +335,10 @@
     <div class="forms">
       <div class="form-wrapper is-active">
         <button type="button" class="switcher switcher-login">
-          Login
+          Sign up
           <span class="underline"></span>
         </button>
-        <form class="form form-login" action="/register" method="post">
+        <form class="form form-login" action="/register/user" method="post">
           <fieldset>
             <legend>Please, enter your login details.</legend>
             <div class="input-row">
@@ -370,7 +370,7 @@
           Organization register
           <span class="underline"></span>
         </button>
-        <form class="form form-signup" action="/signup/organization" method="post">
+        <form class="form form-signup" action="/register/trust" method="post">
           <fieldset>
             <legend>Please, enter your organization details.</legend>
             <div class="input-row">
@@ -410,7 +410,7 @@
               </div>
               <div class="input-block">
                 <label for="signup-document">Document Upload</label>
-                <input id="signup-document" name="signup-document" type="file" required>
+                <input id="signup-document" name="signup-document" type="file">
               </div>
             </div>
             <div class="input-block">
@@ -457,6 +457,10 @@
     min-height: 100vh;
     background-color: #f4f6f9;
     padding: 20px;
+    background-image: url(../static/images/bg.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
   }
 
   .form {
@@ -478,7 +482,7 @@
   legend {
     font-size: 1.2em;
     font-weight: bold;
-    color: #333;
+    color: #000;
     margin-bottom: 10px;
   }
 
@@ -497,9 +501,10 @@
     display: block;
     font-size: 0.85em;
     font-weight: bold;
-    color: #555;
+    color: #000;
     margin-bottom: 5px;
     transition: color 0.3s;
+
   }
 
   .input-block input {
@@ -545,6 +550,11 @@
   .btn-signup:hover, .btn-login:hover {
     background-color: #0056b3;
   }
+
+  .switcher{
+    color: #fff;
+  }
+
 </style>
 
 <script>
