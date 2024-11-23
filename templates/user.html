@@ -24,19 +24,19 @@
         <!-- navbar -->
         <nav class="nav-bar">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#howitworks">How it works?</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="about.html">About us</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-                <li><a class="nav-link login-button" href="#">Donate</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('home') }}#howitworks">How it works?</a></li>
+                <li><a href="{{ url_for('home') }}#achievements">Achievements</a></li>
+                <li><a href="{{ url_for('about') }}">About us</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+                <li><a class="nav-link login-button" href="{{ url_for('signin') }}">Donate</a></li>
             </ul>
         </nav>
     </header>
     <!--to top button -->
     <div class="top">
         <a href="#">
-            <img width="35px" height="31px" src="./assets/arrow.png" alt="scroll-top">
+            <img width="35px" height="31px" src="{{ url_for('static', filename='images/arrow.png')}}" alt="scroll-top">
         </a>
     </div>
 
@@ -49,7 +49,7 @@
                     </span>
                     <span class="profile">Profile</span></a></li>
             <li><a href="">Registered Trusts</a></li>
-            <li><a href="pickup.html">Pick up Buddies</a></li>
+            <li><a href="{{ url_for('pickup')}}">Pick up Buddies</a></li>
         </ul>
     </div>
     <!-- form -->

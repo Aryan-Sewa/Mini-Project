@@ -25,7 +25,7 @@ class TrustRegistration:
 
         with open(self.json_file, 'r') as file:
             trusts = json.load(file)
-            return any(trust['contact_person_email'] == contact_person_email for trust in trusts)
+            return any(trust.get('contact_person_email') == contact_person_email for trust in trusts)
         
     def register_trust(self, organisation_name, organisation_type, tax_identification_number, contact_person_name, contact_person_email, contact_person_phone, address, password):
          

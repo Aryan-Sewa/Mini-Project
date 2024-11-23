@@ -6,7 +6,7 @@ import os
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 json_path = os.path.join(base_dir, 'users.json')
-json_path1 = os.path.join(base_dir, 'users.json')
+json_path1 = os.path.join(base_dir, 'trust.json')
 
 
 print(f"Resolved JSON Path: {json_path}")
@@ -15,8 +15,8 @@ app = Flask(__name__)
 app.secret_key = 'jojo'
 
 reg = Registration(json_path)
-sig = Signin(json_path)
-trus = TrustRegistration(json_path)
+sig = Signin(json_path)    
+trus = TrustRegistration(json_path1)
 
 @app.route('/')
 def home():
@@ -103,6 +103,10 @@ def register_trust():
 @app.route('/user')
 def user():
     return render_template('user.html')
+
+@app.route('/pickup')
+def pickup():
+    return render_template('pickup.html')
 
 if __name__=='__main__':
     app.run(debug=True)

@@ -1,0 +1,12 @@
+[
+    {
+        "organisation_name": "EdhoOrganisation",
+        "organisation_type": "OruType",
+        "tax_identification_number": "12345677",
+        "contact_person_name": "NaanDhan",
+        "contact_person_email": "aryansewa2004@gmail.com",
+        "phone": "0123456789",
+        "address": "edh oru oorula, enagayum oru theruvula.",
+        "password": "scrypt:32768:8:1$lzr1HtW6VvLPN6U6$3e75c56a06abccd78bb0f67d7fdf7bd27b9d0416d347c01ff9ecbdc4ea8172958b003a278d65e7692cecbff6d2731f8c089606276181cf22ea8a4aef14907faf"
+    }
+]

@@ -22,5 +22,15 @@
         "email": "harishpalank@gmail.com",
         "password": "scrypt:32768:8:1$b5RDbp7MkhwC2dFi$6ce7fae93a6f17763bb4bda9f2a7ae5db918b644cb070a02ac08dc116a5cfb241614283b053cde5e756b62e5f01f6f82cc1418665b548d26909fffbeeea89bda",
         "phone": "22233344551"
+    },
+    {
+        "organisation_name": "EdhoOrganisation",
+        "organisation_type": "OruType",
+        "tax_identification_number": "12345677",
+        "contact_person_name": "NaanDhan",
+        "contact_person_email": "aryansewa2004@gmail.com",
+        "phone": "0123456789",
+        "address": "edh oru oorula, enagayum oru theruvula.",
+        "password": "scrypt:32768:8:1$JzobxqyatzWKqChz$3a847ce3eb889f728a71d2dacf7e57742293e97823fcdc86fcb3855259d1ab5174a4e4a17c0740e292b741bf6b27c2fc5dc51e1324973b96dbe9f56b91498dd7"
     }
 ]
