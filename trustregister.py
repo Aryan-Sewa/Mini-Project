@@ -3,6 +3,8 @@ import json
 from werkzeug.security import generate_password_hash, check_password_hash
 from os.path import exists
 
+#this is for the trust/organisations to regsiter into the website
+
 class TrustRegistration:
     def __init__(self, json_file='trusts.json'):
         

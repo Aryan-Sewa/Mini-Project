@@ -44,8 +44,8 @@
                 </span>generosity</h1>
 
             <div class="hero-btn">
-                <button class="Dbtn">Donate Now</button>
-                <button class="Rbtn">Register as a Trust</button>
+                <a href="{{ url_for('user') }}"><button class="Dbtn donate-btn">Donate Now</button></a>
+                <a href="{{ url_for('register_trust') }}"><button class="Rbtn">Register as a Trust</button></a>
             </div>
 
         </div>
@@ -132,6 +132,7 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='js/GIF.js')}}"></script>
+    <script src="donate.js"></script>
 </body>
 
 </html>

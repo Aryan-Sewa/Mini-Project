@@ -24,13 +24,9 @@
         "phone": "22233344551"
     },
     {
-        "organisation_name": "EdhoOrganisation",
-        "organisation_type": "OruType",
-        "tax_identification_number": "12345677",
-        "contact_person_name": "NaanDhan",
-        "contact_person_email": "aryansewa2004@gmail.com",
-        "phone": "0123456789",
-        "address": "edh oru oorula, enagayum oru theruvula.",
-        "password": "scrypt:32768:8:1$JzobxqyatzWKqChz$3a847ce3eb889f728a71d2dacf7e57742293e97823fcdc86fcb3855259d1ab5174a4e4a17c0740e292b741bf6b27c2fc5dc51e1324973b96dbe9f56b91498dd7"
+        "username": "student123",
+        "email": "student123@gmail.com",
+        "password": "scrypt:32768:8:1$bVgoZaBKbqQb5pnr$4bd300d292b0aafe0e1de28a395c6703f1367130dd1f142ea7f5e3e500e8bcfbe88c28c5c487748af376033a9b911da5cfc950bb93d5d159f3c061b17df9bc54",
+        "phone": "9876543210"
     }
 ]

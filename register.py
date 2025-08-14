@@ -1,8 +1,10 @@
 import re
+import mysql.connector
 import json
 from werkzeug.security import generate_password_hash, check_password_hash
 from os.path import exists
 
+#this is for users to create an account in the website
 class Registration:
     def __init__(self, json_file='users.json'):
         
@@ -25,7 +27,7 @@ class Registration:
 
         with open(self.json_file, 'r') as file:
             users = json.load(file)
-            return any(user['email'] == email for user in users)
+            return any(user.get('email') == email for user in users)
         
     def register_user(self, username, email, password, phone):
          

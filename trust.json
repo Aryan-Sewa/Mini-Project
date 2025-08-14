@@ -8,5 +8,25 @@
         "phone": "0123456789",
         "address": "edh oru oorula, enagayum oru theruvula.",
         "password": "scrypt:32768:8:1$lzr1HtW6VvLPN6U6$3e75c56a06abccd78bb0f67d7fdf7bd27b9d0416d347c01ff9ecbdc4ea8172958b003a278d65e7692cecbff6d2731f8c089606276181cf22ea8a4aef14907faf"
+    },
+    {
+        "organisation_name": "BU organisation",
+        "organisation_type": "ara set pulset",
+        "tax_identification_number": "12345678",
+        "contact_person_name": "pulset",
+        "contact_person_email": "pulset420@gmail.com",
+        "phone": "987654321",
+        "address": "pul nadu, pul city, pul nagar",
+        "password": "scrypt:32768:8:1$YgxlzrETVNZz184p$6c802cb992c790d7ca83b8be31064c1c1590ce4e90c4ce30834ac9427721eed5fce62bbcf580947344fd16e70d658ed66cc8affad2bbf435c242011dd0dde724"
+    },
+    {
+        "organisation_name": "BIST",
+        "organisation_type": "latest",
+        "tax_identification_number": "777888",
+        "contact_person_name": "Swag Sewa",
+        "contact_person_email": "swagsewa@gmail.com",
+        "phone": "9998887770",
+        "address": "somewhere, nowhere, but there",
+        "password": "scrypt:32768:8:1$HN6VUXdQ2J6MqsBI$5ff222fc2d45e66a831b3c780938dc00ac55126de2fcfc70d551a88bde59007cc2f874747bd48afcd72c475abbb6c46930241031591360ae3be2e9f4bc0fddf6"
     }
 ]

@@ -21,7 +21,10 @@
             <button type="submit" class="btn">Sign In</button>
         </form>
         <div class="redirect">
-            Don't have an account? <a href="{{ url_for('register') }}">Create one</a>
+            Don't have an account? <a href="{{ url_for('register_user') }}">Create one</a>
+        </div>
+        <div class="redirect">
+            Don't you have an organisation account? <a href="{{ url_for('register_trust') }}"> create one</a>
         </div>
     </div>
 </body>

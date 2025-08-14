@@ -24,7 +24,11 @@
                 </svg>
                 GiveItForward
             </div>
-    
+            <!-- <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div> -->
 
             <!-- navbar -->
             <nav class="nav-bar">
@@ -34,7 +38,7 @@
                     <li><a href="#achievements">Achievements</a></li>
                     <li><a href="{{ url_for('about')}}">About us</a></li>
                     <li><a href="{{ url_for('contact')}}">Contact us</a></li>
-                    <li id="auth-link"><a class="nav-link login-button" href="/signin">Signup / Login</a></li>
+                    <li><a class="nav-link login-button" href="">PROFILE</a></li>
                 </ul>
             </nav>
         </header>
@@ -55,9 +59,9 @@
                         Join our community and be a part of the change, making a real difference with every donation.
                     </p>
                     <div class="hero-btn">
-                        <a href="{{ url_for('user') }}"><button class="Dbtn donate-btn">Donate Now</button></a>
+                        <a href="{{ url_for('user')}}"><button class="Dbtn">Donate Now</button></a>
 
-                        <a href="{{ url_for('register_trust') }}"><button class="Rbtn">Register as a Trust</button></a>
+                        <button class="Rbtn">Register as a Trust</button>
                     </div>
                 </div>
                 <div class="hero-img">
@@ -275,8 +279,8 @@
             <h1>Ready to Make a Difference?</h1>
             <p>Join our community of donors and trusts.</p>
             <div class="cta-btn">
-                <a href="{{ url_for('user') }}"><button class="btn1 donate-btn">Donate Now</button></a>
-                <a href="{{ url_for('register_trust') }}"><button class="btn2">Register as a Trust</button></a>
+                <button class="btn1">Donate Now</button>
+                <button class="btn2">Register as a Trust</button>
             </div>
         </div>
         <!-- footer -->
@@ -289,8 +293,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='js/GIF.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
-    <script src="donate.js"></script>
+
 
 </body>
 

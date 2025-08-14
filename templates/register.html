@@ -327,13 +327,17 @@
         flex-basis: 70%;
       }
     }
+    .form fieldset {
+      opacity: 1 !important;
+      transform: translateX(0) !important;
+    }
   </style>
 </head>
 <body>
   <section class="forms-section">
-    <h2 class="section-title">Register as Donor</h2>
+    <h2 class="section-title">Register Here!!</h2>
     <div class="forms">
-      <div class="form-wrapper is-active">
+      <div class="form-wrapper" {% if active_side == 'user' %}is-active{% endif %}>
         <button type="button" class="switcher switcher-login">
           Sign up
           <span class="underline"></span>
@@ -365,7 +369,7 @@
           <button type="submit" class="btn-login">Login</button>
         </form>
       </div>
-      <div class="form-wrapper">
+      <div class="form-wrapper" {% if active_side == 'user' %}is-active{% endif %}>
         <button type="button" class="switcher switcher-signup">
           Organization register
           <span class="underline"></span>

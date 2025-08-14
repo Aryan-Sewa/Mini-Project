@@ -1,4 +1,4 @@
-from flask import Flask,request,render_template,redirect,flash
+from flask import Flask,request,render_template,redirect,flash,jsonify, session
 from register import Registration
 from signin import Signin
 from trustregister import TrustRegistration
@@ -20,7 +20,8 @@ trus = TrustRegistration(json_path1)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    user = session.get('user')
+    return render_template('index.html', user=user)
 
 @app.route('/about')
 def about():
@@ -41,12 +42,18 @@ def signin():
             flash(message)
             return redirect('/register/user')
         else:
+            user_data = sig.get_user_data_by_email(user_email)
+            session['user'] = {
+                'name': user_data["username"],
+                'profile_pic': user_data.get('profile_pic', '/static/default.png')
+            }
             return redirect('/')
+
         
     return render_template('signin.html')
 
 #for user
-@app.route('/register/user', methods=['GET','POST'])
+@app.route('/register/user', methods=['GET','POST'], endpoint="register_user")
 def register():
   
     if request.method == 'POST':
@@ -68,7 +75,7 @@ def register():
             flash(message)
             return redirect('/register/user')
     
-    return render_template('register.html')
+    return render_template('register.html', active_side='user')
 
 #for trust
 @app.route('/register/trust', methods=['GET', 'POST'])
@@ -97,16 +104,34 @@ def register_trust():
             flash(message)
             return redirect('/register/trust')
     
-    return render_template('register.html')
+    return render_template('register.html', active_side='trust')
+
+
+@app.route('/current_user')
+def current_user():
+    return jsonify(session.get('user', {}))
+
+# removes user from session
+
+@app.route('/logout')
+def logout():
+    session.pop('user', None)  
+    return redirect('/')
 
 
 @app.route('/user')
 def user():
+    if 'user' not in session:
+        return redirect('/signin')
     return render_template('user.html')
 
 @app.route('/pickup')
 def pickup():
     return render_template('pickup.html')
+
+@app.route('/trust')
+def trust():
+    return render_template('trust.html')
 
 if __name__=='__main__':
     app.run(debug=True)
