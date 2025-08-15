@@ -1,17 +1,17 @@
 import re
 import mysql.connector
-import json
-from werkzeug.security import generate_password_hash, check_password_hash
-from os.path import exists
+from werkzeug.security import generate_password_hash
+from db import get_db_connection
 
 #this is for users to create an account in the website
 class Registration:
-    def __init__(self, json_file='users.json'):
-        
-        self.json_file = json_file
-        if not exists(self.json_file):
-            with open(self.json_file, 'w') as file:
-                json.dump([], file)
+    def __init__(self):
+        try:
+            conn = get_db_connection()
+            conn.close()
+        except Exception as e:
+            raise Exception(f"Database connection error: {e}")
+    
 
     def validate_input(self, email, password):
 
@@ -25,34 +25,37 @@ class Registration:
     
     def user_exists(self, email):
 
-        with open(self.json_file, 'r') as file:
-            users = json.load(file)
-            return any(user.get('email') == email for user in users)
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        try:
+            cursor.execute("SELECT 1 FROM users WHERE email = %s", (email,))
+            user = cursor.fetchone()
+            return user is not None
+        except Exception as e:
+            print(f"Database error: {e}")
+            return False
+        finally:
+            cursor.close()
+            conn.close()
         
     def register_user(self, username, email, password, phone):
-         
-         if self.user_exists(email):
-             return False, "E-mail already registered."
-         
-         hasshed_password = generate_password_hash(password)
 
-         new_user = {
-             "username": username,
-             "email": email,
-             "password": hasshed_password,
-             "phone": phone
-         }
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        try:
+            cursor.execute(
+            "INSERT INTO users (username, email, password, phone) VALUES (%s, %s, %s, %s)",
+            (username, email, generate_password_hash(password), phone)
+            )
 
-         try:
-            with open(self.json_file, 'r') as file:
-                 users = json.load(file)
-            users.append(new_user)
-
-            with open(self.json_file, 'w') as file:
-                json.dump(users, file, indent=4)
-            
-            return True, "Users Registered Successfully :)"
-         except Exception as e:
-             return False, f"Registration Failed: {e}"
+            conn.commit()
+            return True, "Registration Successful!"
+        
+        except Exception as e:
+            return False, f"Database error: {e}"
+        
+        finally:
+            cursor.close()
+            conn.close()
 
             

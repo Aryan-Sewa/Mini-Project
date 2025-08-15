@@ -1,17 +1,19 @@
 import re
-import json
-from werkzeug.security import generate_password_hash, check_password_hash
-from os.path import exists
+import mysql.connector
+from db import get_db_connection
+from werkzeug.security import generate_password_hash
 
 #this is for the trust/organisations to regsiter into the website
 
 class TrustRegistration:
-    def __init__(self, json_file='trusts.json'):
+    def __init__(self):
         
-        self.json_file = json_file
-        if not exists(self.json_file):
-            with open(self.json_file, 'w') as file:
-                json.dump([], file)
+        try:
+            conn = get_db_connection()
+            conn.close()
+        except Exception as e:
+            raise Exception(f"Database connection error: {e}")
+
 
     def validate_trust(self, contact_person_email, password):
 
@@ -25,38 +27,49 @@ class TrustRegistration:
     
     def trust_exists(self, contact_person_email):
 
-        with open(self.json_file, 'r') as file:
-            trusts = json.load(file)
-            return any(trust.get('contact_person_email') == contact_person_email for trust in trusts)
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        try:
+            cursor.execute("select 1 from trusts where contact_person_email = %s", (contact_person_email,))
+            trust = cursor.fetchone()
+            return trust is not None
+        except Exception as e:
+            print(f"An error occured: {e}")
+            return False
+        finally:
+            cursor.close()
+            conn.close()
+
         
     def register_trust(self, organisation_name, organisation_type, tax_identification_number, contact_person_name, contact_person_email, contact_person_phone, address, password):
          
-         if self.trust_exists(contact_person_email):
-             return False, "E-mail already registered."
+        hashed_password = generate_password_hash(password)
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        if self.trust_exists(contact_person_email):
+            return False, "E-mail already registered."
+        else:
+            try:
+                cursor.execute(
+                "insert into trusts (organisation_name, organisation_type, tax_identification_number, contact_person_name, contact_person_email, phone, address, password) values (%s, %s, %s, %s, %s, %s, %s, %s)",
+                (organisation_name, organisation_type, tax_identification_number, contact_person_name, contact_person_email, contact_person_phone, address, hashed_password)
+                )
+
+                conn.commit()
+                return True, f"registration successful!!"
+            except Exception as e:
+                raise Exception(f"An error occured while registering: {e}")
+            finally:
+                cursor.close()
+                conn.close()
+
          
-         hasshed_password = generate_password_hash(password)
+        
 
-         new_trust = {
-             "organisation_name": organisation_name,
-             "organisation_type": organisation_type,
-             "tax_identification_number": tax_identification_number,
-             "contact_person_name": contact_person_name,
-             "contact_person_email": contact_person_email,
-             "phone": contact_person_phone,
-             "address": address,
-             "password": hasshed_password
-         }
+        
 
-         try:
-            with open(self.json_file, 'r') as file:
-                 trusts = json.load(file)
-            trusts.append(new_trust)
 
-            with open(self.json_file, 'w') as file:
-                json.dump(trusts, file, indent=4)
-            
-            return True, "Trust Registered Successfully :)"
-         except Exception as e:
-             return False, f"Registration Failed: {e}"
+        
 
             
