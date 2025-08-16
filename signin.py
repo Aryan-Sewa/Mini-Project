@@ -22,23 +22,23 @@ class Signin:
             if result:
                 stored_password_hash = result[0]
                 if check_password_hash(stored_password_hash, password):
-                    return True, "Sign-in succesful. Welcome!!", "user"
+                    return True, "Sign-in succesful. Welcome!!"
                 else:
-                    return False, "Wrong password. Please enter the correct password!!", None
+                    return False, "Wrong password. Please enter the correct password!!"
         #check the trusts table
             cursor.execute("select password from trusts where email = %s", (email,))
             result = cursor.fetchone()
             if result:
                 stored_password_hash = result[0]
                 if check_password_hash(stored_password_hash, password):
-                    return True, "Sign-in successful. Welcome!!", "trust"
+                    return True, "Sign-in successful. Welcome!!"
                 else:
-                    return False, "Wrong password. Please enter the correct password!!", None
+                    return False, "Wrong password. Please enter the correct password!!"
             
-            return False, "No such user found with this eamil!!", None
+            return False, "No such user found with this eamil!!"
         
         except Exception as e:
-            return False, f"An error occured while checking the sign-in credentials: {e}", None 
+            return False, f"An error occured while checking the sign-in credentials: {e}"
         finally:
             cursor.close()
             conn.close()

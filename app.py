@@ -1,22 +1,20 @@
 from flask import Flask,request,render_template,redirect,flash,jsonify, session
+import mysql.connector
+from db import get_db_connection, init_db
 from register import Registration
 from signin import Signin
 from trustregister import TrustRegistration
-import os
-
-base_dir = os.path.dirname(os.path.abspath(__file__))
-json_path = os.path.join(base_dir, 'users.json')
-json_path1 = os.path.join(base_dir, 'trust.json')
-
-
-print(f"Resolved JSON Path: {json_path}")
 
 app = Flask(__name__)
-app.secret_key = 'jojo'
 
-reg = Registration(json_path)
-sig = Signin(json_path)    
-trus = TrustRegistration(json_path1)
+# Ensure the database connection is established before handling requests
+with app.app_context():
+    init_db()
+
+app.secret_key = 'jojo'
+reg = Registration()
+sig = Signin()
+trus = TrustRegistration()
 
 @app.route('/')
 def home():
@@ -40,12 +38,13 @@ def signin():
         is_signedin, message = sig.check_signin(user_email, user_password)
         if not is_signedin:
             flash(message)
-            return redirect('/register/user')
+            return redirect('/signin')
         else:
             user_data = sig.get_user_data_by_email(user_email)
             session['user'] = {
                 'name': user_data["username"],
-                'profile_pic': user_data.get('profile_pic', '/static/default.png')
+                'profile_pic': user_data.get('profile_pic', '/static/default.png'),
+                'type': user_data.get('type')
             }
             return redirect('/')
 
