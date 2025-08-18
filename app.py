@@ -217,6 +217,8 @@ Landmark: {donor_landmark}
 
 @app.route('/pickup')
 def pickup():
+    if 'user' not in session:
+        return redirect ('/signin')
     return render_template('pickup.html', user=session.get('user'))
 
 @app.route('/trust')
