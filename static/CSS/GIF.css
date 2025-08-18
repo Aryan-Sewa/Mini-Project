@@ -99,6 +99,11 @@ header {
   transform: translateX(-50%);
 }
 
+.nav-bar ul li a.active {
+  color: #ff7f3e;
+  font-weight: 600;
+}
+
 svg {
   width: 32px;
   height: 32px;

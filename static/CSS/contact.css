@@ -82,6 +82,11 @@ header {
   padding-bottom: 5px;
 }
 
+.navbar ul li a.active {
+  color: #ff7f3e;
+  font-weight: 600;
+}
+
 .nav-bar ul li a::after {
   content: "";
   position: absolute;
@@ -124,6 +129,8 @@ svg {
   color: #ff7f3e;
   background-color: transparent;
 }
+
+
 
 .container {
   max-width: 100%;

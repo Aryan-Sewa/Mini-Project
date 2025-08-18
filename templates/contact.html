@@ -27,12 +27,12 @@
         </div>
         <nav class="nav-bar">
             <ul>
-                <li><a href="{{ url_for('home')}}" class="active">Home</a></li>
+                <li><a href="{{ url_for('home')}}">Home</a></li>
                 <li><a href="{{ url_for('home') }}#howitworks">How it works?</a></li>
                 <li><a href="{{ url_for('home') }}#achievements">Achievements</a></li>
                 <li><a href="{{ url_for('about') }}">About us</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a class="nav-link login-button" href="{{ url_for('signin')}}">Signup / Login</a></li>
+                <li><a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}">Contact us</a></li>
+                <li id="auth-link"><a class="nav-link login-button" href="/signin">Signup / Login</a></li>
             </ul>
         </nav>
     </header>
@@ -80,6 +80,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='js/GIF.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
 </body>
 
 </html>

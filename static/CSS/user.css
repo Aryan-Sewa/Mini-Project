@@ -211,6 +211,44 @@ textarea {
   margin-bottom: 1rem;
 }
 
+#myInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+#myUL {
+    list-style-type: none;
+    padding: 0;
+}
+
+#myUL li {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#myUL li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#myUL h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+#myUL p {
+    margin: 5px 0;
+    color: #555;
+}
+
 input {
   margin: 1rem 0;
   width: 75%;

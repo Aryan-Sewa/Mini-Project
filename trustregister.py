@@ -62,14 +62,4 @@ class TrustRegistration:
                 raise Exception(f"An error occured while registering: {e}")
             finally:
                 cursor.close()
-                conn.close()
-
-         
-        
-
-        
-
-
-        
-
-            
+                conn.close()      

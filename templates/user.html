@@ -29,7 +29,7 @@
                 <li><a href="{{ url_for('home') }}#achievements">Achievements</a></li>
                 <li><a href="{{ url_for('about') }}">About us</a></li>
                 <li><a href="{{ url_for('contact') }}">Contact us</a></li>
-                <li><a class="nav-link login-button" href="{{ url_for('signin') }}">Donate</a></li>
+                <li id="auth-link"><a class="nav-link login-button" href="/signin">Profile</a></li>
             </ul>
         </nav>
     </header>
@@ -55,7 +55,7 @@
     <!-- form -->
     <div class="form-container">
         <h2>Donation Details</h2>
-        <form>
+        <form action="/donate" method="POST">
             <p style="color: rgb(118, 118, 118);text-align: center;">Please ensure to fill in the details correctly</p>
             <label for="name">Name : </label>
             <input type="text" name="name" id="name" required><br>
@@ -89,6 +89,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="{{ url_for('static', filename='js/GIF.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/navbar.js')}}"></script>
 </body>
 
 </html>

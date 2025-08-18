@@ -173,6 +173,11 @@ header {
   background-color: transparent;
 }
 
+.nav-bar ul li a.active {
+  color: #ff7f3e;
+  font-weight: 600;
+}
+
 .container {
   max-width: 100%;
   overflow-x: hidden;
